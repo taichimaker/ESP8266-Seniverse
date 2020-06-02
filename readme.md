@@ -26,3 +26,26 @@ www.taichi-maker.com
 2. 本程序使用Arduino编程语言。如您使用Arduino IDE开发，请预先在Arduino IDE中安装好ESP8266扩展程序，如需了解详细安装方法，请参考太极创客团队制作的[《零基础入门学用物联网 - 基础知识篇》3-1-2 为ESP8266-NodeMCU搭建Arduino IDE开发环境](http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/iot-c/nodemcu-arduino-ide/)。
 3. 本程序使用ArduinoJson库
    请预先在Arduino IDE中安装[ArduinoJson库](www.arduinojson.org)。 如果您想了解该库的具体使用方法，请参考太极创客团队制作的[《零基础入门学用物联网 - 基础知识篇》
+
+## 使用方法
+
+### 获取当前天气信息
+
+1. 您可以参考example目录中的weather_now程序了解具体使用方法
+
+2. 首先通过WeatherNow建立对象
+   `WeatherNow weatherNow`
+
+3. 使用config函数配置连接心知天气的用户私钥、城市信息以及温度
+   `weatherNow.config(reqUserKey, reqLocation, reqUnit);`
+
+4. 使用update函数对天气信息进行更新
+   `weatherNow.update();`
+
+5. 使用下列函数获取当前天气信息 
+
+   当前天气信息（字符串格式）weatherNow.getWeatherText()
+
+   当前天气信息（整数格式）weatherNow.getWeatherCode()
+   当前温度信息  weatherNow.getDegree()
+   心知天气信息更新时间  weatherNow.getLastUpdate()

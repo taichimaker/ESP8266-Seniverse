@@ -5,7 +5,18 @@
 作者/Author              : CYNO朔
 日期/Date（YYYYMMDD）     : 20200601
 程序目的/Purpose          : 
-                                      
+通过心知天气(www.seniverse.com)免费服务获取天气预报信息（三日）。
+-----------------------------------------------------------------------
+本程序所属仓库网址
+GitHub: https://github.com/taichi-maker/ESP8266-Seniverse
+Gitee: https://gitee.com/taijichuangke/ESP8266-Seniverse
+-----------------------------------------------------------------------
+其它说明 / Other Description
+心知天气API文档说明: https://www.seniverse.com/docs
+
+本程序为太极创客团队制作的免费视频教程《零基础入门学用物联网 》中一部分。该教程系统的
+向您讲述ESP8266的物联网应用相关的软件和硬件知识。以下是该教程目录页：
+http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/                                  
 ***********************************************************************/
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
@@ -191,17 +202,3 @@ void parseInfo(WiFiClient client){
   Serial.println(results_0_last_update_str);
   Serial.println(F("=============================="));
 }
-
-/*
-心知天气API文档说明
-https://www.seniverse.com/docs
-
-当前天气
-api.seniverse.com/v3/weather/now.json?key=xxxxxxxxxxxx&location=beijing&language=en&unit=c
-
-3日英文天气预报：
-api.seniverse.com/v3/weather/daily.json?key=xxxxxxxxxxxx&location=beijing&language=en&unit=c&start=0&days=3
-
-生活指数
-api.seniverse.com/v3/life/suggestion.json?key=xxxxxxxxxxxx&location=beijing&language=en
-*/

@@ -22,6 +22,8 @@ http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/
 #include <ESP8266WiFi.h>
 #include "ESP8266_Xinzhi.h"
 
+
+
 const char* ssid     = "taichimaker";       // 连接WiFi名（此处使用taichi-maker为示例）
                                             // 请将您需要连接的WiFi名填入引号中
 const char* password = "12345678";          // 连接WiFi密码（此处使用12345678为示例）
@@ -45,11 +47,22 @@ void setup(){
   connectWiFi();
 
   weatherNow.config(reqUserKey, reqLocation, reqUnit);
-  
 }
  
 void loop(){
- 
+  weatherNow.update();
+
+  Serial.println(F("======Weahter Now======="));
+  Serial.print(F("Weather Now: "));
+  Serial.print(weatherNow.getWeatherText());
+  Serial.print(F(" "));
+  Serial.println(weatherNow.getWeatherCode());
+  Serial.print(F("Temperature: "));
+  Serial.println(weatherNow.getDegree());
+  Serial.print(F("Last Update: "));
+  Serial.println(weatherNow.getLastUpdate());
+  Serial.println(F("========================"));  
+  
   delay(3000);
 }
 

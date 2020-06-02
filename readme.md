@@ -44,8 +44,8 @@ www.taichi-maker.com
 
 5. 使用下列函数获取当前天气信息 
 
-   当前天气信息（字符串格式）weatherNow.getWeatherText()
+   当前天气信息（字符串格式）`weatherNow.getWeatherText()`
 
-   当前天气信息（整数格式）weatherNow.getWeatherCode()
-   当前温度信息  weatherNow.getDegree()
-   心知天气信息更新时间  weatherNow.getLastUpdate()
+   当前天气信息（整数格式）`weatherNow.getWeatherCode()`
+   当前温度信息  `weatherNow.getDegree()`
+   心知天气信息更新时间  `weatherNow.getLastUpdate()`

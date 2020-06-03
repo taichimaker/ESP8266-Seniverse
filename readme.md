@@ -52,3 +52,28 @@ www.taichi-maker.com
    | 心知天气信息更新时间       | `weatherNow.getLastUpdate()`  |
    
 6. 使用getServerCode函数可获取服务器响应状态码  `weatherNow.getServerCode()`
+
+### 获取天气预报信息
+
+1. 您可以参考example目录中的forecast程序了解具体使用方法
+
+2. 首先通过Forecast建立对象
+   `Forecast forecast`
+
+3. 使用config函数配置连接心知天气的用户私钥、城市信息以及温度
+   `forecast.config(reqUserKey, reqLocation, reqUnit);`
+
+4. 使用update函数对天气信息进行更新
+   `forecast.update();`
+
+5. 使用下列函数获取当前天气信息  
+
+   | 函数说明               | 函数示例（参数i为第几天信息）  |
+   | ---------------------- | ------------------------------ |
+   | 天气信息（字符串格式） | `weatherNow.getWeatherText(i)` |
+   | 天气信息（整数格式）   | `weatherNow.getWeatherCode(i)` |
+   | 最高气温               | `weatherNow.getHigh(i)`        |
+   | 最低气温               | `weatherNow.getHigh(i)`        |
+   | 心知天气信息更新时间   | `weatherNow.getLastUpdate(i)`  |
+
+6. 使用getServerCode函数可获取服务器响应状态码  `weatherNow.getServerCode()`

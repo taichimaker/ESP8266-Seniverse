@@ -68,12 +68,14 @@ www.taichi-maker.com
 
 5. 使用下列函数获取当前天气信息  
 
-   | 函数说明               | 函数示例（参数i为第几天信息）  |
-   | ---------------------- | ------------------------------ |
-   | 天气信息（字符串格式） | `weatherNow.getWeatherText(i)` |
-   | 天气信息（整数格式）   | `weatherNow.getWeatherCode(i)` |
-   | 最高气温               | `weatherNow.getHigh(i)`        |
-   | 最低气温               | `weatherNow.getHigh(i)`        |
-   | 心知天气信息更新时间   | `weatherNow.getLastUpdate(i)`  |
+   | 函数说明                   | 函数示例（参数i为第几天信息） |
+   | -------------------------- | ----------------------------- |
+   | 白天天气信息（字符串格式） | `forecast.getDayText(i)`      |
+   | 白天天气信息（整数格式）   | `forecast.getDayCode(i)`      |
+   | 夜晚天气信息（字符串格式） | `forecast.getNightText(i)`    |
+   | 夜晚天气信息（整数格式）   | `forecast.getNightCode(i)`    |
+   | 最高气温                   | `forecast.getHigh(i)`         |
+   | 最低气温                   | `forecast.getLow(i)`          |
+   | 心知天气信息更新时间       | `forecast.getLastUpdate(i)`   |
 
 6. 使用getServerCode函数可获取服务器响应状态码  `weatherNow.getServerCode()`

@@ -4,13 +4,17 @@
  
 WeatherNow::WeatherNow(){
 }
- 
+
+// 配置心知天气请求信息
 void WeatherNow::config(String userKey, String location, String unit){
   _reqUserKey = userKey; 
   _reqLocation = location;
   _reqUnit = unit;
 }
 
+/* 尝试从心知天气更新信息
+ * @return: bool 成功更新返回真，否则返回假
+ */
 bool WeatherNow::update(){
   WiFiClient _wifiClient;
   
@@ -23,7 +27,7 @@ bool WeatherNow::update(){
                               "Connection: close\r\n\r\n";
                               
   #ifdef DEBUG
-  Serial.print("Connecting to ");Serial.println(_host);
+  Serial.print("Connecting to ");Serial.print(_host);
   #endif DEBUG
   
   if (_wifiClient.connect(_host, 80)){
@@ -40,11 +44,25 @@ bool WeatherNow::update(){
     #endif DEBUG        
  
     // 获取并显示服务器响应状态行 
-    String status_response = _wifiClient.readStringUntil('\n');
+    String _status_response = _wifiClient.readStringUntil('\n');
     #ifdef DEBUG
-    Serial.print("status_response: ");
-    Serial.println(status_response);
-    #endif DEBUG   
+    Serial.print("_status_response: ");
+    Serial.println(_status_response);
+    #endif DEBUG
+    
+    // 查验服务器是否响应200 OK
+    _response_code = _status_response.substring(9, 12);
+    if (_response_code == "200") {
+      #ifdef DEBUG
+      Serial.println("Response Code: 200");
+      #endif DEBUG 
+    } else {
+      #ifdef DEBUG
+      Serial.println(F("Response Code: NOT 200"));
+      #endif DEBUG   
+      _wifiClient.stop();    
+      return false;
+    }  
 
     // 使用find跳过HTTP响应头
     if (_wifiClient.find("\r\n\r\n")) {
@@ -52,9 +70,7 @@ bool WeatherNow::update(){
       Serial.println("Found Header End. Start Parsing.");
       #endif DEBUG              
     }
-
-    //String serverPayLoad = _wifiClient.readString();
-    //Serial.println(serverPayLoad);
+    
     _parseNowInfo(_wifiClient); 
     _wifiClient.stop();
     return true;
@@ -67,6 +83,7 @@ bool WeatherNow::update(){
   }                           
 }
 
+// 解析服务器响应信息
 void WeatherNow::_parseNowInfo(WiFiClient httpClient){
   const size_t capacity = JSON_ARRAY_SIZE(1) + JSON_OBJECT_SIZE(1) + 2*JSON_OBJECT_SIZE(3) + JSON_OBJECT_SIZE(6) + 230;
   DynamicJsonDocument doc(capacity);
@@ -109,4 +126,9 @@ int WeatherNow::getDegree(){
 // 返回心知天气信息更新时间
 String WeatherNow::getLastUpdate(){
   return _last_update_str;
+}
+
+// 返回服务器响应状态码
+String WeatherNow::getServerCode(){
+  return _response_code;
 }

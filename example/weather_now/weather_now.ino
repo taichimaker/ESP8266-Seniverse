@@ -1,6 +1,6 @@
 /**********************************************************************
 项目名称/Project          : 零基础入门学用物联网
-程序名称/Program name     : dev
+程序名称/Program name     : weather_now（rev.001）
 团队/Team                : 太极创客团队 / Taichi-Maker (www.taichi-maker.com)
 作者/Author              : CYNO朔
 日期/Date（YYYYMMDD）     : 20200602
@@ -22,46 +22,47 @@ http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/
 #include <ESP8266WiFi.h>
 #include "ESP8266_Xinzhi.h"
 
-
-
 const char* ssid     = "taichimaker";       // 连接WiFi名（此处使用taichi-maker为示例）
                                             // 请将您需要连接的WiFi名填入引号中
 const char* password = "12345678";          // 连接WiFi密码（此处使用12345678为示例）
                                             // 请将您需要连接的WiFi密码填入引号中
 
-// 心知天气HTTP请求所需信息
+// 心知天气HTTP请求所需信息()
 String reqUserKey = "SCXC4Mj_0aB96cZup";   // 私钥
 String reqLocation = "beijing";            // 城市
 String reqUnit = "c";                      // 摄氏/华氏
 
-WeatherNow weatherNow;
+WeatherNow weatherNow;  // 建立WeatherNow对象用于获取心知天气信息
 
 void setup(){
   Serial.begin(9600);          
   Serial.println("");
-  
-  // 设置开发板LED引脚
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, HIGH);
 
-  connectWiFi();
+  connectWiFi();    // 连接wifi
 
+  // 配置心知天气请求信息
   weatherNow.config(reqUserKey, reqLocation, reqUnit);
 }
  
 void loop(){
-  weatherNow.update();
-
-  Serial.println(F("======Weahter Now======="));
-  Serial.print(F("Weather Now: "));
-  Serial.print(weatherNow.getWeatherText());
-  Serial.print(F(" "));
-  Serial.println(weatherNow.getWeatherCode());
-  Serial.print(F("Temperature: "));
-  Serial.println(weatherNow.getDegree());
-  Serial.print(F("Last Update: "));
-  Serial.println(weatherNow.getLastUpdate());
-  Serial.println(F("========================"));  
+  if(weatherNow.update()){  // 更新天气信息
+    Serial.println(F("======Weahter Info======"));
+    Serial.print("Server Response: ");
+    Serial.println(weatherNow.getServerCode()); // 获取服务器响应码
+    Serial.print(F("Weather Now: "));
+    Serial.print(weatherNow.getWeatherText());  // 获取当前天气（字符串格式）
+    Serial.print(F(" "));
+    Serial.println(weatherNow.getWeatherCode());// 获取当前天气（整数格式）
+    Serial.print(F("Temperature: "));
+    Serial.println(weatherNow.getDegree());     // 获取当前温度数值
+    Serial.print(F("Last Update: "));
+    Serial.println(weatherNow.getLastUpdate()); // 获取服务器更新天气信息时间
+    Serial.println(F("========================"));     
+  } else {    // 更新失败
+    Serial.println("Update Fail...");   
+    Serial.print("Server Response: ");          // 输出服务器响应状态码供用户查找问题
+    Serial.println(weatherNow.getServerCode()); // 心知天气服务器错误代码说明可通过以下网址获取
+  }                                             // https://docs.seniverse.com/api/start/error.html
   
   delay(3000);
 }
@@ -83,3 +84,8 @@ void connectWiFi(){
   Serial.print("IP address:    ");             // 同时还将输出NodeMCU的IP地址。这一功能是通过调用
   Serial.println(WiFi.localIP());              // WiFi.localIP()函数来实现的。该函数的返回值即NodeMCU的IP地址。  
 }
+/*-----------------------------------------------------------------------
+修订历史/Revision History  
+日期/Date    作者/Author      参考号/Ref    修订说明/Revision Description
+20200603      CYNO朔           001        add http response code check
+-----------------------------------------------------------------------*/                                 

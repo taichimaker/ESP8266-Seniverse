@@ -2,5 +2,5 @@
 #define _ESP8266_SENIVERSE_H_
 
 #include "WeatherNow.h"
-
+#include "Forecast.h"
 #endif

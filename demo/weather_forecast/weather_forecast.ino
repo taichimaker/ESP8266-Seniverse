@@ -183,7 +183,7 @@ void parseInfo(WiFiClient client){
   int results_0_daily_0_low_int = results_0_daily_0["low"].as<int>();
   String results_0_last_update_str = results_0["last_update"].as<String>();
 
-  Serial.println(F("======Tomorrow Weahter ======="));
+  Serial.println(F("======Today Weahter ======="));
   Serial.print(F("DATE: "));
   Serial.println(results_0_daily_0_date_str);
   Serial.print(F("Day Weather: "));

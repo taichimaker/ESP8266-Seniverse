@@ -5,7 +5,7 @@
 作者/Author              : CYNO朔
 日期/Date（YYYYMMDD）     : 20200602
 程序目的/Purpose          : 
-使用ESP8266_Xinzhi库获取天气信息
+使用ESP8266_Seniverse库通过心知天气服务器获取实时天气信息
 -----------------------------------------------------------------------
 本程序所属仓库网址
 GitHub: https://github.com/taichi-maker/ESP8266-Seniverse
@@ -20,7 +20,7 @@ http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/
 ***********************************************************************/
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
-#include "ESP8266_Xinzhi.h"
+#include "ESP8266_Seniverse.h"
 
 const char* ssid     = "taichimaker";       // 连接WiFi名（此处使用taichi-maker为示例）
                                             // 请将您需要连接的WiFi名填入引号中
@@ -88,4 +88,5 @@ void connectWiFi(){
 修订历史/Revision History  
 日期/Date    作者/Author      参考号/Ref    修订说明/Revision Description
 20200603      CYNO朔           001        add http response code check
+20200603      CYNO朔           002        change file name to ESP8266_Seniverse
 -----------------------------------------------------------------------*/                                 

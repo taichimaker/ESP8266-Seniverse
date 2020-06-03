@@ -51,7 +51,4 @@ www.taichi-maker.com
    | 当前温度信息               | `weatherNow.getDegree()`      |
    | 心知天气信息更新时间       | `weatherNow.getLastUpdate()`  |
    
-   
-   
-6. 使用以下函数获取服务器响应状态码，可用于调试
-   心知天气服务器响应状态码  `weatherNow.getServerCode()`
+6. 使用getServerCode函数可获取服务器响应状态码  `weatherNow.getServerCode()`

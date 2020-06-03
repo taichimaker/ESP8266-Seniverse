@@ -1,6 +1,4 @@
-#include "ESP8266_Xinzhi.h"
-#include <ArduinoJson.h>
-#include <ESP8266WiFi.h>
+#include "WeatherNow.h"
  
 WeatherNow::WeatherNow(){
 }

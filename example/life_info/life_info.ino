@@ -1,11 +1,11 @@
 /**********************************************************************
 项目名称/Project          : 零基础入门学用物联网
-程序名称/Program name     : forecast
+程序名称/Program name     : life_info
 团队/Team                : 太极创客团队 / Taichi-Maker (www.taichi-maker.com)
 作者/Author              : CYNO朔
 日期/Date（YYYYMMDD）     : 20200603
 程序目的/Purpose          : 
-使用ESP8266_Seniverse库通过心知天气服务器获取天气预报信息
+使用ESP8266_Seniverse库通过心知天气服务器获取生活信息
 -----------------------------------------------------------------------
 本程序所属仓库网址
 GitHub: https://github.com/taichi-maker/ESP8266-Seniverse

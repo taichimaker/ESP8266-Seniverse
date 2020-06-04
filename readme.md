@@ -1,31 +1,36 @@
-# ESP8266 心知天气
+# ESP8266 心知天气库  / ESP8266-Seniverse
 
-此库用于使用ESP8266获取心知天气信息 www.seniverse.com。
+*English description can be found at the end of Chinese description.*
 
-本项目为太极创客团队制作的免费视频教程《零基础入门学用物联网 》中一部分。该教程系统的向您讲述ESP8266的物联网应用相关的软件和硬件知识。如果您希望观看教程视频，可前往以下视频平台观看。
+## 基本介绍
+
+
+此库用于ESP8266物联网开发板通过HTTP协议获取心知天气网站API所提供的免费信息。这些信息包括：
+
+1. 天气预报信息（温度，天气，降水概率，风力，风向，湿度）
+2. 实时天气信息（温度，天气）
+3. 获取实时生活指数（穿衣，紫外线强度，洗车，旅游，感冒，运动）
+
+关于以上信息的详细说明，请参考心知天气网站官方文档：https://www.seniverse.com/docs
+
+心知天气成立于2016年，是中国领先的气象数据服务公司，致力于提供高精度的气象数据服务和产品。心知天气官网地址：www.seniverse.com 
+
+## 关于本库
+
+本库为太极创客团队制作的免费视频教程《零基础入门学用物联网 》中一部分。该教程系统的向您讲述ESP8266的物联网应用相关的软件和硬件知识。如果您希望观看教程视频，可前往以下视频平台观看。
 
 哔哩哔哩：https://www.bilibili.com/video/BV1L7411c7jw
 
 YouTube: https://www.youtube.com/playlist?list=PL8mx3Pk-gVLI2GwuxuqR_T5WDKeAPRkzj
 
-假如您想了解更多太极创客的教程项目和相关内容，欢迎您前往我们的网站：
-
-www.taichi-maker.com
-
-## 基本功能
-
-通过心知天气免费服务获取以下信息：
-
-1. 获取天气预报信息（三日）
-2. 获取实时天气信息
-3. 获取实时生活指数（穿衣，紫外线强度，洗车，旅游，感冒，运动）
+ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中的一个。我们坚持免费开源是为了让更多的朋友可以体会开源项目和开源协作的魅力，让我们开发的项目更富活力。假如您喜欢我们的项目，请为本项目打上一颗小星星，或者把我们推荐给更多热爱科技的朋友们。谢谢！您的鼓励是我们前进最大的动力！
 
 ## 使用前准备工作
 
 1. 使用本库前请预先注册好心知天气账号并且开通免费服务。
 2. 本程序使用Arduino编程语言。如您使用Arduino IDE开发，请预先在Arduino IDE中安装好ESP8266扩展程序，如需了解详细安装方法，请参考太极创客团队制作的[《零基础入门学用物联网 - 基础知识篇》3-1-2 为ESP8266-NodeMCU搭建Arduino IDE开发环境](http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/iot-c/nodemcu-arduino-ide/)。
 3. 本程序使用ArduinoJson库
-   请预先在Arduino IDE中安装[ArduinoJson库](www.arduinojson.org)。 如果您想了解该库的具体使用方法，请参考太极创客团队制作的[《零基础入门学用物联网 - 基础知识篇》
+   请预先在Arduino IDE中安装[ArduinoJson库](www.arduinojson.org)。 如果您想了解该库的具体使用方法，请参考太极创客团队制作的免费视频教程《[零基础入门学用物联网](http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/)》
 
 ## 使用方法
 
@@ -115,3 +120,45 @@ www.taichi-maker.com
 6. 使用getServerCode函数可获取服务器响应状态码  `lifeInfo.getServerCode()`
 
 7. 使用getLastUpdate函数获取心知天气信息更新时间`lifeInfo.getLastUpdate()`
+
+太极创客团队信息
+--------
+太极创客官网地址：http://www.taichi-maker.com/
+
+太极创客哔哩哔哩主页：https://space.bilibili.com/103589285
+
+太极创客YouTube：https://www.youtube.com/channel/UC8EkxMr5gGnrb9adVgR-UJw
+
+太极创客GitHub：https://github.com/orgs/taichi-maker/teams/team
+
+太极创客码云：https://gitee.com/taijichuangke
+
+-----------------------------
+
+## ESP8266-Seniverse
+
+This ESP8266-Arduino Library is for getting weather information from Seniverse API (Free) via HTTP protocol. The information includes:
+
+1. Weather Forecast（Temperature，Weather，Precipitation probability，Wind Scale，Wind Direction，Humidity）
+2. Live Weather Info.（Temperature，Weather）
+3. Daily Life Information（Dressing Suggestion，UV level etc.）
+
+For more infromation about the above information please refer to Seniverse API Doc (Chinese Only)：https://www.seniverse.com/docs
+
+founded in 2016, Seniverse is a leading Weather Data provider in China. Seniverse Official Website：www.seniverse.com 
+
+About Taichi-Maker Team
+--------
+
+Taichi-Maker Official Website：http://www.taichi-maker.com/
+
+Taichi-Maker BiliBili：https://space.bilibili.com/103589285
+
+Taichi-Maker YouTube Chanel：https://www.youtube.com/channel/UC8EkxMr5gGnrb9adVgR-UJw
+
+Taichi-Maker GitHub：https://github.com/orgs/taichi-maker/teams/team
+
+Taichi-Maker Gitee：https://gitee.com/taijichuangke
+
+
+

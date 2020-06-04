@@ -156,7 +156,7 @@ Taichi-Maker BiliBili：https://space.bilibili.com/103589285
 
 Taichi-Maker YouTube Chanel：https://www.youtube.com/channel/UC8EkxMr5gGnrb9adVgR-UJw
 
-Taichi-Maker GitHub：https://github.com/orgs/taichi-maker/teams/team
+Taichi-Maker GitHub：https://github.com/taichi-maker
 
 Taichi-Maker Gitee：https://gitee.com/taijichuangke
 

@@ -94,52 +94,9 @@ void Forecast::_parseForecastInfo(WiFiClient httpClient){
   
   JsonArray results_0_daily = results_0["daily"];
   
-  JsonObject results_0_daily_0 = results_0_daily[0];
-  const char* results_0_daily_0_text_day = results_0_daily_0["text_day"]; 
-  const char* results_0_daily_0_code_day = results_0_daily_0["code_day"];
-  const char* results_0_daily_0_text_night = results_0_daily_0["text_night"]; 
-  const char* results_0_daily_0_code_night = results_0_daily_0["code_night"]; 
-  const char* results_0_daily_0_high = results_0_daily_0["high"];
-  const char* results_0_daily_0_low = results_0_daily_0["low"]; 
-  const char* results_0_daily_0_rainfall = results_0_daily_0["rainfall"];
-  const char* results_0_daily_0_precip = results_0_daily_0["precip"]; 
-  const char* results_0_daily_0_wind_direction = results_0_daily_0["wind_direction"]; 
-  const char* results_0_daily_0_wind_direction_degree = results_0_daily_0["wind_direction_degree"];
-  const char* results_0_daily_0_wind_speed = results_0_daily_0["wind_speed"];
-  const char* results_0_daily_0_wind_scale = results_0_daily_0["wind_scale"];
-  const char* results_0_daily_0_humidity = results_0_daily_0["humidity"];
-  
-  JsonObject results_0_daily_1 = results_0_daily[1];
-  const char* results_0_daily_1_text_day = results_0_daily_1["text_day"];
-  const char* results_0_daily_1_code_day = results_0_daily_1["code_day"];
-  const char* results_0_daily_1_text_night = results_0_daily_1["text_night"]; 
-  const char* results_0_daily_1_code_night = results_0_daily_1["code_night"]; 
-  const char* results_0_daily_1_high = results_0_daily_1["high"];
-  const char* results_0_daily_1_low = results_0_daily_1["low"]; 
-  const char* results_0_daily_1_rainfall = results_0_daily_1["rainfall"]; 
-  const char* results_0_daily_1_precip = results_0_daily_1["precip"]; 
-  const char* results_0_daily_1_wind_direction = results_0_daily_1["wind_direction"];
-  const char* results_0_daily_1_wind_direction_degree = results_0_daily_1["wind_direction_degree"]; 
-  const char* results_0_daily_1_wind_speed = results_0_daily_1["wind_speed"];
-  const char* results_0_daily_1_wind_scale = results_0_daily_1["wind_scale"];
-  const char* results_0_daily_1_humidity = results_0_daily_1["humidity"]; 
-  
+  JsonObject results_0_daily_0 = results_0_daily[0]; 
+  JsonObject results_0_daily_1 = results_0_daily[1]; 
   JsonObject results_0_daily_2 = results_0_daily[2];
-  const char* results_0_daily_2_text_day = results_0_daily_2["text_day"];
-  const char* results_0_daily_2_code_day = results_0_daily_2["code_day"];
-  const char* results_0_daily_2_text_night = results_0_daily_2["text_night"];
-  const char* results_0_daily_2_code_night = results_0_daily_2["code_night"];
-  const char* results_0_daily_2_high = results_0_daily_2["high"]; 
-  const char* results_0_daily_2_low = results_0_daily_2["low"]; 
-  const char* results_0_daily_2_rainfall = results_0_daily_2["rainfall"];
-  const char* results_0_daily_2_precip = results_0_daily_2["precip"]; 
-  const char* results_0_daily_2_wind_direction = results_0_daily_2["wind_direction"]; 
-  const char* results_0_daily_2_wind_direction_degree = results_0_daily_2["wind_direction_degree"]; 
-  const char* results_0_daily_2_wind_speed = results_0_daily_2["wind_speed"];
-  const char* results_0_daily_2_wind_scale = results_0_daily_2["wind_scale"]; 
-  const char* results_0_daily_2_humidity = results_0_daily_2["humidity"]; 
-  
-  const char* results_0_last_update = results_0["last_update"]; 
   
   // 从以上信息中解析数值
   _text_day[0] = results_0_daily_0["text_day"].as<String>(); 
@@ -148,7 +105,13 @@ void Forecast::_parseForecastInfo(WiFiClient httpClient){
   _code_night[0] = results_0_daily_0["code_night"].as<int>(); 
   _degree_high[0] = results_0_daily_0["high"].as<int>();
   _degree_low[0] = results_0_daily_0["low"].as<int>();
-
+  
+  _rainfall[0] = results_0_daily_0["rainfall"].as<float>();
+  _wind_direction[0] = results_0_daily_0["wind_direction"].as<String>();
+  _wind_speed[0] = results_0_daily_0["wind_speed"].as<float>();
+  _wind_scale[0] = results_0_daily_0["wind_scale"].as<int>();
+  _humidity[0] = results_0_daily_0["humidity"].as<int>();   
+  
   _text_day[1] = results_0_daily_1["text_day"].as<String>(); 
   _code_day[1] = results_0_daily_1["code_day"].as<int>(); 
   _text_night[1] = results_0_daily_1["text_night"].as<String>(); 
@@ -156,12 +119,24 @@ void Forecast::_parseForecastInfo(WiFiClient httpClient){
   _degree_high[1] = results_0_daily_1["high"].as<int>();
   _degree_low[1] = results_0_daily_1["low"].as<int>();
 
+  _rainfall[1] = results_0_daily_1["rainfall"].as<float>();
+  _wind_direction[1] = results_0_daily_1["wind_direction"].as<String>();
+  _wind_speed[1] = results_0_daily_1["wind_speed"].as<float>();
+  _wind_scale[1] = results_0_daily_1["wind_scale"].as<int>();
+  _humidity[1] = results_0_daily_1["humidity"].as<int>();   
+
   _text_day[2] = results_0_daily_2["text_day"].as<String>(); 
   _code_day[2] = results_0_daily_2["code_day"].as<int>(); 
   _text_night[2] = results_0_daily_2["text_night"].as<String>(); 
   _code_night[2] = results_0_daily_2["code_night"].as<int>(); 
   _degree_high[2] = results_0_daily_2["high"].as<int>();
   _degree_low[2] = results_0_daily_2["low"].as<int>();
+
+  _rainfall[2] = results_0_daily_2["rainfall"].as<float>();
+  _wind_direction[2] = results_0_daily_2["wind_direction"].as<String>();
+  _wind_speed[2] = results_0_daily_2["wind_speed"].as<float>();
+  _wind_scale[2] = results_0_daily_2["wind_scale"].as<int>();
+  _humidity[2] = results_0_daily_2["humidity"].as<int>();   
   
   _last_update = results_0["last_update"].as<String>();
 }
@@ -196,7 +171,38 @@ int Forecast::getLow(int index){
   return _degree_low[index];
 }
 
+// 返回降水概率
+float Forecast::getRain(int index){
+  return _rainfall[index];
+}
+
+// 获取风向信息
+String Forecast::getWindDirection(int index){
+  return _wind_direction[index];
+}
+
+// 获取风速信息
+float Forecast::getWindSpeed(int index){
+  return _wind_speed[index];
+}
+
+// 获取风力信息
+int Forecast::getWindScale(int index){
+  return _wind_scale[index];
+}
+
+//  获取湿度信息
+int Forecast::getHumidity(int index){
+  return _humidity[index];
+}
+
 // 返回心知天气信息更新时间
 String Forecast::getLastUpdate(){
   return _last_update;
+}
+
+
+// 返回服务器响应状态码
+String Forecast::getServerCode(){
+  return _response_code;
 }

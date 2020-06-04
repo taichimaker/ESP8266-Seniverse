@@ -1,0 +1,44 @@
+#######################################
+# ESP8266-心知天气库 关键字
+# ESP8266-Seniverse Library Keywords
+# 太极创客 / www.taichi-maker.com
+#######################################
+
+#######################################
+# 数据类型/Datatypes (KEYWORD1)
+#######################################
+
+WeatherNow			KEYWORD1
+LifeInfo			KEYWORD1
+Forecast			KEYWORD1
+
+#######################################
+# 函数/Functions (KEYWORD2)
+#######################################
+ESP8266_Seniverse	KEYWORD2
+getWeatherText		KEYWORD2
+getWeatherCode   	KEYWORD2
+getDegree   		KEYWORD2
+getLastUpdate		KEYWORD2 
+getServerCode		KEYWORD2
+getCarWash			KEYWORD2
+getDressing			KEYWORD2
+getFactorFlu		KEYWORD2
+getExercise			KEYWORD2
+getTravel			KEYWORD2
+getUV				KEYWORD2
+getLastUpdate		KEYWORD2
+getServerCode		KEYWORD2
+getDayText			KEYWORD2
+getDayCode			KEYWORD2
+getNightText		KEYWORD2
+getNightCode		KEYWORD2
+getHigh				KEYWORD2
+getLow				KEYWORD2
+getRain				KEYWORD2
+getWindDirection	KEYWORD2
+getWindSpeed		KEYWORD2
+getWindScale		KEYWORD2
+getHumidity			KEYWORD2
+getLastUpdate		KEYWORD2
+getServerCode		KEYWORD2

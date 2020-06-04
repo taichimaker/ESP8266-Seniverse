@@ -3,4 +3,5 @@
 
 #include "WeatherNow.h"
 #include "Forecast.h"
+#include "LifeInfo.h"
 #endif

@@ -60,13 +60,30 @@ void loop(){
       Serial.print(F(" "));
       Serial.println(forecast.getNightCode(i));  
       Serial.print(F("High: "));
-      Serial.println(forecast.getHigh(i));
+      Serial.print(forecast.getHigh(i));
+      Serial.println(F("°C"));     
       Serial.print(F("LOW: "));
-      Serial.println(forecast.getLow(i));  
-      Serial.print(F("Last Update: ")); 
-      Serial.println(forecast.getLastUpdate());     
-      Serial.println(F("=====================")); 
-    }    
+      Serial.print(forecast.getLow(i));  
+      Serial.println(F("°C"));
+
+      Serial.print(F("Rainfall: "));
+      Serial.print(forecast.getRain(i));  
+      Serial.println(F("%"));
+      Serial.print(F("Wind Direction: "));
+      Serial.println(forecast.getWindDirection(i));  
+      Serial.print(F("Wind Speed: "));
+      Serial.println(forecast.getWindSpeed(i));
+      Serial.print(F("Wind Scale: "));
+      Serial.println(forecast.getWindScale(i));    
+      Serial.print(F("Humidity: "));
+      Serial.println(forecast.getHumidity(i)); 
+                    
+      Serial.print(F("Last Update: "));       
+      Serial.println(forecast.getLastUpdate());                
+    }
+    Serial.print(F("Server Code: ")); 
+    Serial.println(forecast.getServerCode()); 
+    Serial.println(F("====================="));   
   } else {    // 更新失败
     Serial.println("Update Fail...");   
     //Serial.print("Server Response: ");          // 输出服务器响应状态码供用户查找问题

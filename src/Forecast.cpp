@@ -3,7 +3,11 @@
 Forecast::Forecast(){
 }
 
-// 配置心知天气请求信息
+/* 配置心知天气请求信息
+ * @param userKey  用户心知天气私钥
+ * @param location 获取信息的城市参数
+ * @param location 获取信息的温度单位(摄氏/华氏)
+ */
 void Forecast::config(String userKey, String location, String unit){
   _reqUserKey = userKey; 
   _reqLocation = location;

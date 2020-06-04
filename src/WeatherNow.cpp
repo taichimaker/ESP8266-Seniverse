@@ -3,7 +3,11 @@
 WeatherNow::WeatherNow(){
 }
 
-// 配置心知天气请求信息
+/* 配置心知天气请求信息
+ * @param userKey  用户心知天气私钥
+ * @param location 获取信息的城市参数
+ * @param location 获取信息的温度单位(摄氏/华氏)
+ */
 void WeatherNow::config(String userKey, String location, String unit){
   _reqUserKey = userKey; 
   _reqLocation = location;
@@ -81,7 +85,7 @@ bool WeatherNow::update(){
   }                           
 }
 
-// 解析服务器响应信息
+// 配置心知天气请求信息
 void WeatherNow::_parseNowInfo(WiFiClient httpClient){
   const size_t capacity = JSON_ARRAY_SIZE(1) + JSON_OBJECT_SIZE(1) + 2*JSON_OBJECT_SIZE(3) + JSON_OBJECT_SIZE(6) + 230;
   DynamicJsonDocument doc(capacity);

@@ -33,8 +33,8 @@ class WeatherNow {
     String _response_code =  "no_init";   // 服务器响应状态码
     
     String _now_text_str = "no_init";    
-    int _now_code_int = 404; 
-    int _now_temperature_int = 404;     
+    int _now_code_int = 999; 
+    int _now_temperature_int = 999;     
     String _last_update_str = "no_init";   
     
 };

@@ -129,7 +129,7 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
 
 太极创客YouTube：https://www.youtube.com/channel/UC8EkxMr5gGnrb9adVgR-UJw
 
-太极创客GitHub：https://github.com/orgs/taichi-maker/teams/team
+太极创客GitHub：https://github.com/taichi-maker
 
 太极创客码云：https://gitee.com/taijichuangke
 

@@ -49,9 +49,10 @@ www.taichi-maker.com
    | 当前天气信息（字符串格式） | `weatherNow.getWeatherText()` |
    | 当前天气信息（整数格式）   | `weatherNow.getWeatherCode()` |
    | 当前温度信息               | `weatherNow.getDegree()`      |
-   | 心知天气信息更新时间       | `weatherNow.getLastUpdate()`  |
    
 6. 使用getServerCode函数可获取服务器响应状态码  `weatherNow.getServerCode()`
+
+7. 使用getLastUpdate函数获取心知天气信息更新时间`weatherNow.getLastUpdate()`
 
 ### 获取天气预报信息
 
@@ -84,3 +85,33 @@ www.taichi-maker.com
    | 获取湿度信息               | `forecast.getHumidity(i)`      |
 
 6. 使用getServerCode函数可获取服务器响应状态码  `forecast.getServerCode()`
+
+7. 使用getLastUpdate函数获取心知天气信息更新时间`forecast.getLastUpdate()`
+
+### 获取生活指数信息
+
+1. 您可以参考example目录中的life_info程序了解具体使用方法
+
+2. 首先通过LIfeInfo建立对象
+   `LifeInfo lifeInfo`
+
+3. 使用config函数配置连接心知天气的用户私钥、城市信息以及温度
+   `lifeInfo.config(reqUserKey, reqLocation, reqUnit);`
+
+4. 使用update函数对天气信息进行更新
+   `lifeInfo.update();`
+
+5. 使用下列函数获取当前天气信息  
+
+   | 函数说明       | 函数示例（参数i为第几天信息） |
+   | -------------- | ----------------------------- |
+   | 获取洗车建议   | `lifeInfo.getCarWash()`       |
+   | 获取穿衣建议   | `lifeInfo.getDayCode()`       |
+   | 获取流感建议   | `lifeInfo.getNightText(i)`    |
+   | 获取运动建议   | `lifeInfo.getNightCode(i)`    |
+   | 获取旅游建议   | `lifeInfo.getHigh(i)`         |
+   | 获取紫外线建议 | `lifeInfo.getLow(i)`          |
+
+6. 使用getServerCode函数可获取服务器响应状态码  `lifeInfo.getServerCode()`
+
+7. 使用getLastUpdate函数获取心知天气信息更新时间`lifeInfo.getLastUpdate()`

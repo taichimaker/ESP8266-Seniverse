@@ -1,11 +1,11 @@
 /**********************************************************************
 项目名称/Project          : 零基础入门学用物联网
-程序名称/Program name     : weather_now（rev.001）
+程序名称/Program name     : weather_now（rev.002）
 团队/Team                : 太极创客团队 / Taichi-Maker (www.taichi-maker.com)
 作者/Author              : CYNO朔
-日期/Date（YYYYMMDD）     : 20200602
+日期/Date（YYYYMMDD）     : 初版建立时间20200602(最新修订时间20200607)
 程序目的/Purpose          : 
-使用ESP8266_Seniverse库通过心知天气服务器获取实时天气信息
+使用ESP8266_Seniverse库通过心知天气服务器获取实时天气信息。
 -----------------------------------------------------------------------
 本程序所属仓库网址
 GitHub: https://github.com/taichi-maker/ESP8266-Seniverse
@@ -20,15 +20,18 @@ http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/
 ***********************************************************************/
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
-#include "ESP8266_Seniverse.h"
+#include <ESP8266_Seniverse.h>
 
 const char* ssid     = "taichimaker";       // 连接WiFi名（此处使用taichi-maker为示例）
                                             // 请将您需要连接的WiFi名填入引号中
-const char* password = "12345678";          // 连接WiFi密码（此处使用12345678为示例）
+const char* password = "12345678";          // 连接WiFi密码（此处使用12345678为示例）                                         // 请将您需要连接的WiFi密码填入引号中
                                             // 请将您需要连接的WiFi密码填入引号中
 
-// 心知天气HTTP请求所需信息()
-String reqUserKey = "SCXC4Mj_0aB96cZup";   // 私钥
+// 心知天气HTTP请求所需信息
+// 请对以下信息进行修改，填入您的心知天气私钥以及需要获取天气信息的城市和温度单位
+// 如需进一步了解心知天气API所提供的城市列表等信息，请前往心知天气官方产品文档网址：
+// https://www.seniverse.com/docs
+String reqUserKey = "XXXXXXXXXXXXXXXXX";   // 私钥
 String reqLocation = "beijing";            // 城市
 String reqUnit = "c";                      // 摄氏/华氏
 

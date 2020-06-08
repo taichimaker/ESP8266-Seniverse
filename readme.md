@@ -36,16 +36,22 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
 
 ### 获取当前天气信息
 
-1. 您可以参考example目录中的weather_now程序了解具体使用方法
+1. 您可以参考 **example** 目录中的 **weather_now** 程序了解具体使用方法
 
-2. 首先通过WeatherNow建立对象
-   `WeatherNow weatherNow`
+2. 首先通过`WeatherNow`建立对象
+   ```C++
+   WeatherNow weatherNow
+   ```  
+   
+3. 使用`config`函数配置连接心知天气的用户私钥、城市信息以及温度
+   ```C++
+   weatherNow.config(reqUserKey, reqLocation, reqUnit);
+   ```  
 
-3. 使用config函数配置连接心知天气的用户私钥、城市信息以及温度
-   `weatherNow.config(reqUserKey, reqLocation, reqUnit);`
-
-4. 使用update函数对天气信息进行更新（此函数返回值为bool型。在ESP8266成功连接心知天气服务器并且服务器返回响应状态码为200时，此函数将会返回真，否则会返回假。）
-   `weatherNow.update();`
+4. 使用`update`函数对天气信息进行更新（此函数返回值为`bool`型。在ESP8266成功连接心知天气服务器并且服务器返回响应状态码为`200`时，此函数将会返回真，否则会返回假。）
+   ```C++
+   weatherNow.update();
+   ```  
 
 5. 使用下列函数获取当前天气信息  
 
@@ -55,24 +61,37 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
    | 当前天气信息（整数格式）   | `weatherNow.getWeatherCode()` |
    | 当前温度信息               | `weatherNow.getDegree()`      |
 
-6. 使用getServerCode函数可获取服务器响应状态码  `weatherNow.getServerCode()`。当用户通过ESP8266向心知天气服务器发送的请求存在问题时（如私钥错误、请求信息内容错误等），服务器会通过响应状态码告知用户问题的具体原因。您可以通过心知天气的官方文档获得服务器响应状态码所对应的具体问题原因。
+6. 使用`getServerCode`函数可获取服务器响应状态码。  
+   当用户通过ESP8266向心知天气服务器发送的请求存在问题时（如私钥错误、请求信息内容错误等），服务器会通过响应状态码告知用户问题的具体原因。您可以通过心知天气的官方文档获得服务器响应状态码所对应的具体问题原因。
+   ```C++
+   weatherNow.getServerCode()
+   ```  
 
-7. 使用getLastUpdate函数获取心知天气信息更新时间`weatherNow.getLastUpdate()`
+7. 使用`getLastUpdate`函数获取心知天气信息更新时间
+   ```C++
+   weatherNow.getLastUpdate()
+   ```  
 
 ### 获取天气预报信息
 
-1. 您可以参考example目录中的forecast程序了解具体使用方法
+1. 您可以参考**example**目录中的**forecast**程序了解具体使用方法
 
-2. 首先通过Forecast建立对象
-   `Forecast forecast`
+2. 首先通过`Forecast`建立对象
+   ```C++
+   Forecast forecast
+   ```  
 
-3. 使用config函数配置连接心知天气的用户私钥、城市信息以及温度
-   `forecast.config(reqUserKey, reqLocation, reqUnit);`
+3. 使用`config`函数配置连接心知天气的用户私钥、城市信息以及温度
+   ```C++
+   forecast.config(reqUserKey, reqLocation, reqUnit);
+   ```  
 
-4. 使用update函数对天气信息进行更新（此函数返回值为bool型。在ESP8266成功连接心知天气服务器并且服务器返回响应状态码为200时，此函数将会返回真，否则会返回假。）
-   `forecast.update();`
+4. 使用`update`函数对天气信息进行更新（此函数返回值为`bool`型。在ESP8266成功连接心知天气服务器并且服务器返回响应状态码为`200`时，此函数将会返回真，否则会返回假。）
+   ```C++
+   forecast.update();
+   ```  
 
-5. 使用下列函数获取当前天气信息 （下列函数的参数i为获取第几天信息的天数序号。例：参数为0，则函数将会返回今天的天气预报信息。参数为1，则返回明天的天气预报...依此类推。参数i取值范围为0-2。）
+5. 使用下列函数获取当前天气信息 （下列函数的参数i为获取第几天信息的天数序号。例：参数为`0`，则函数将会返回今天的天气预报信息。参数为`1`，则返回明天的天气预报...依此类推。参数i取值范围为`0-2`。）
 
    | 函数说明                   | 函数示例（参数i为第几天信息）  |
    | -------------------------- | ------------------------------ |
@@ -89,22 +108,35 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
    | 获取风力信息               | `forecast.getWindScale(i)`     |
    | 获取湿度信息               | `forecast.getHumidity(i)`      |
 
-6. 使用getServerCode函数可获取服务器响应状态码  `forecast.getServerCode()`。当用户通过ESP8266向心知天气服务器发送的请求存在问题时（如私钥错误、请求信息内容错误等），服务器会通过响应状态码告知用户问题的具体原因。您可以通过心知天气的官方文档获得服务器响应状态码所对应的具体问题原因。
+6. 使用`getServerCode`函数可获取服务器响应状态码。  
+   当用户通过ESP8266向心知天气服务器发送的请求存在问题时（如私钥错误、请求信息内容错误等），服务器会通过响应状态码告知用户问题的具体原因。您可以通过心知天气的官方文档获得服务器响应状态码所对应的具体问题原因。
+   ```C++
+   forecast.getServerCode()
+   ```  
 
-7. 使用getLastUpdate函数获取心知天气信息更新时间`forecast.getLastUpdate()`
+7. 使用`getLastUpdate`函数获取心知天气信息更新时间
+   ```C++
+   forecast.getLastUpdate()
+   ```  
 
 ### 获取生活指数信息
 
-1. 您可以参考example目录中的life_info程序了解具体使用方法
+1. 您可以参考 **example** 目录中的 **life_info** 程序了解具体使用方法
 
-2. 首先通过LIfeInfo建立对象
-   `LifeInfo lifeInfo`
+2. 首先通过`LIfeInfo`建立对象
+   ```C++
+   LifeInfo lifeInfo
+   ```  
 
-3. 使用config函数配置连接心知天气的用户私钥、城市信息以及温度
-   `lifeInfo.config(reqUserKey, reqLocation, reqUnit);`
+3. 使用`config`函数配置连接心知天气的用户私钥、城市信息以及温度
+   ```C++
+   lifeInfo.config(reqUserKey, reqLocation, reqUnit);
+   ```  
 
-4. 使用update函数对天气信息进行更新（此函数返回值为bool型。在ESP8266成功连接心知天气服务器并且服务器返回响应状态码为200时，此函数将会返回真，否则会返回假。）
-   `lifeInfo.update();`
+4. 使用`update`函数对天气信息进行更新（此函数返回值为`bool`型。在ESP8266成功连接心知天气服务器并且服务器返回响应状态码为`200`时，此函数将会返回真，否则会返回假。）
+   ```C++
+   lifeInfo.update();
+   ```  
 
 5. 使用下列函数获取当前天气信息  
 
@@ -117,9 +149,15 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
    | 获取旅游建议   | `lifeInfo.getHigh()`      |
    | 获取紫外线建议 | `lifeInfo.getLow()`       |
 
-6. 使用getServerCode函数可获取服务器响应状态码  `lifeInfo.getServerCode()`。当用户通过ESP8266向心知天气服务器发送的请求存在问题时（如私钥错误、请求信息内容错误等），服务器会通过响应状态码告知用户问题的具体原因。您可以通过心知天气的官方文档获得服务器响应状态码所对应的具体问题原因。
-
-7. 使用getLastUpdate函数获取心知天气信息更新时间`lifeInfo.getLastUpdate()`
+6. 使用`getServerCode`函数可获取服务器响应状态码。  
+当用户通过ESP8266向心知天气服务器发送的请求存在问题时（如私钥错误、请求信息内容错误等），服务器会通过响应状态码告知用户问题的具体原因。您可以通过心知天气的官方文档获得服务器响应状态码所对应的具体问题原因。
+   ```C++
+   lifeInfo.getServerCode()
+   ```  
+7. 使用`getLastUpdate`函数获取心知天气信息更新时间
+   ```C++  
+   lifeInfo.getLastUpdate()
+   ```  
 
 太极创客团队信息
 --------

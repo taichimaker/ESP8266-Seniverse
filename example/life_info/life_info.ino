@@ -18,9 +18,9 @@ Gitee: https://gitee.com/taijichuangke/ESP8266-Seniverse
 向您讲述ESP8266的物联网应用相关的软件和硬件知识。以下是该教程目录页：
 http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/                                
 ***********************************************************************/
-#include <ArduinoJson.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266_Seniverse.h>
+#include <ArduinoJson.h>                    //https://github.com/bblanchon/ArduinoJson
+#include <ESP8266WiFi.h>                    //ESP8266自带库，无需安装
+#include <ESP8266_Seniverse.h>              //https://github.com/taichi-maker/ESP8266-Seniverse
 
 const char* ssid     = "taichimaker";       // 连接WiFi名（此处使用taichi-maker为示例）
                                             // 请将您需要连接的WiFi名填入引号中
@@ -31,9 +31,9 @@ const char* password = "12345678";          // 连接WiFi密码（此处使用12
 // 请对以下信息进行修改，填入您的心知天气私钥以及需要获取天气信息的城市和温度单位
 // 如需进一步了解心知天气API所提供的城市列表等信息，请前往心知天气官方产品文档网址：
 // https://www.seniverse.com/docs
-String reqUserKey = "XXXXXXXXXXXXXXXXX";   // 私钥
-String reqLocation = "beijing";            // 城市
-String reqUnit = "c";                      // 摄氏/华氏// 请将您需要连接的WiFi密码填入引号中
+const char* reqUserKey = "XXXXXXXXXXXXXXXXX";   // 私钥
+const char* reqLocation = "beijing";            // 城市，可使用"ip"自动识别请求 IP 地址
+const char* reqUnit = "c";                      // 摄氏(c)/华氏(f)
 
 LifeInfo lifeInfo; // 建立Forecast对象用于获取心知天气信息
 

@@ -18,7 +18,7 @@ Gitee: https://gitee.com/taijichuangke/ESP8266-Seniverse
 向您讲述ESP8266的物联网应用相关的软件和硬件知识。以下是该教程目录页：
 http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/                                
 ***********************************************************************/
-#include <ArduinoJson.h>
+
 #include <ESP8266WiFi.h>
 #include <ESP8266_Seniverse.h>
 

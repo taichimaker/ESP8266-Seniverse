@@ -111,11 +111,11 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
    | 函数说明       | 函数示例                  |
    | -------------- | ------------------------- |
    | 获取洗车建议   | `lifeInfo.getCarWash()`   |
-   | 获取穿衣建议   | `lifeInfo.getDayCode()`   |
-   | 获取流感建议   | `lifeInfo.getNightText()` |
-   | 获取运动建议   | `lifeInfo.getNightCode()` |
-   | 获取旅游建议   | `lifeInfo.getHigh()`      |
-   | 获取紫外线建议 | `lifeInfo.getLow()`       |
+   | 获取穿衣建议   | `lifeInfo.getDressing()`  |
+   | 获取流感建议   | `lifeInfo.getFactorFlu()` |
+   | 获取运动建议   | `lifeInfo.getExercise()`  |
+   | 获取旅游建议   | `lifeInfo.getTravel()`    |
+   | 获取紫外线建议 | `lifeInfo.getUV()`        |
 
 6. 使用getServerCode函数可获取服务器响应状态码  `lifeInfo.getServerCode()`。当用户通过ESP8266向心知天气服务器发送的请求存在问题时（如私钥错误、请求信息内容错误等），服务器会通过响应状态码告知用户问题的具体原因。您可以通过心知天气的官方文档获得服务器响应状态码所对应的具体问题原因。
 

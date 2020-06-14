@@ -41,36 +41,36 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
 2. 首先通过`WeatherNow`建立对象
    ```C++
    WeatherNow weatherNow
-   ```  
+   ```
    
 3. 使用`config`函数配置连接心知天气的用户私钥、城市信息以及温度
    ```C++
    weatherNow.config(reqUserKey, reqLocation, reqUnit);
-   ```  
+   ```
 
 4. 使用`update`函数对天气信息进行更新（此函数返回值为`bool`型。在ESP8266成功连接心知天气服务器并且服务器返回响应状态码为`200`时，此函数将会返回真，否则会返回假。）
    ```C++
    weatherNow.update();
-   ```  
+   ```
 
 5. 使用下列函数获取当前天气信息  
 
-   | 函数说明                   | 函数示例                      |
-   | -------------------------- | ----------------------------- |
-   | 当前天气信息（字符串格式） | `weatherNow.getWeatherText()` |
-   | 当前天气信息（整数格式）   | `weatherNow.getWeatherCode()` |
-   | 当前温度信息               | `weatherNow.getDegree()`      |
+   | 函数说明                          | 函数示例                      |
+   | --------------------------------- | ----------------------------- |
+   | 当前天气信息 (返回值类型：String) | `weatherNow.getWeatherText()` |
+   | 当前天气代码 (返回值类型：int)    | `weatherNow.getWeatherCode()` |
+   | 当前温度信息 (返回值类型：int)    | `weatherNow.getDegree()`      |
 
 6. 使用`getServerCode`函数可获取服务器响应状态码。  
    当用户通过ESP8266向心知天气服务器发送的请求存在问题时（如私钥错误、请求信息内容错误等），服务器会通过响应状态码告知用户问题的具体原因。您可以通过心知天气的官方文档获得服务器响应状态码所对应的具体问题原因。
    ```C++
    weatherNow.getServerCode()
-   ```  
+   ```
 
 7. 使用`getLastUpdate`函数获取心知天气信息更新时间
    ```C++
    weatherNow.getLastUpdate()
-   ```  
+   ```
 
 ### 获取天气预报信息
 
@@ -79,45 +79,45 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
 2. 首先通过`Forecast`建立对象
    ```C++
    Forecast forecast
-   ```  
+   ```
 
 3. 使用`config`函数配置连接心知天气的用户私钥、城市信息以及温度
    ```C++
    forecast.config(reqUserKey, reqLocation, reqUnit);
-   ```  
+   ```
 
 4. 使用`update`函数对天气信息进行更新（此函数返回值为`bool`型。在ESP8266成功连接心知天气服务器并且服务器返回响应状态码为`200`时，此函数将会返回真，否则会返回假。）
    ```C++
    forecast.update();
-   ```  
+   ```
 
 5. 使用下列函数获取当前天气信息 （下列函数的参数i为获取第几天信息的天数序号。例：参数为`0`，则函数将会返回今天的天气预报信息。参数为`1`，则返回明天的天气预报...依此类推。参数i取值范围为`0-2`。）
 
-   | 函数说明                   | 函数示例（参数i为第几天信息）  |
-   | -------------------------- | ------------------------------ |
-   | 白天天气信息（字符串格式） | `forecast.getDayText(i)`       |
-   | 白天天气信息（整数格式）   | `forecast.getDayCode(i)`       |
-   | 夜晚天气信息（字符串格式） | `forecast.getNightText(i)`     |
-   | 夜晚天气信息（整数格式）   | `forecast.getNightCode(i)`     |
-   | 最高气温                   | `forecast.getHigh(i)`          |
-   | 最低气温                   | `forecast.getLow(i)`           |
-   | 心知天气信息更新时间       | `forecast.getLastUpdate(i)`    |
-   | 获取降水概率信息           | `forecast.getRain(i)`          |
-   | 获取风向信息               | `forecast.getWindDirection(i)` |
-   | 获取风速信息               | `forecast.getWindSpeed(i)`     |
-   | 获取风力信息               | `forecast.getWindScale(i)`     |
-   | 获取湿度信息               | `forecast.getHumidity(i)`      |
+   | 函数说明                                 | 函数示例（参数i为第几天信息）  |
+   | ---------------------------------------- | ------------------------------ |
+   | 白天天气信息(返回值类型：String)         | `forecast.getDayText(i)`       |
+   | 白天天气信息(返回值类型：String)         | `forecast.getDayCode(i)`       |
+   | 夜晚天气信息(返回值类型：String)         | `forecast.getNightText(i)`     |
+   | 夜晚天气信息(返回值类型：String)         | `forecast.getNightCode(i)`     |
+   | 最高气温(返回值类型：int)                | `forecast.getHigh(i)`          |
+   | 最低气温(返回值类型：int)                | `forecast.getLow(i)`           |
+   | 心知天气信息更新时间(返回值类型：String) | `forecast.getLastUpdate(i)`    |
+   | 获取降水概率信息(返回值类型：float)      | `forecast.getRain(i)`          |
+   | 获取风向信息(返回值类型：String)         | `forecast.getWindDirection(i)` |
+   | 获取风速信息(返回值类型：float)          | `forecast.getWindSpeed(i)`     |
+   | 获取风力信息(返回值类型：int)            | `forecast.getWindScale(i)`     |
+   | 获取湿度信息(返回值类型：int)            | `forecast.getHumidity(i)`      |
 
 6. 使用`getServerCode`函数可获取服务器响应状态码。  
    当用户通过ESP8266向心知天气服务器发送的请求存在问题时（如私钥错误、请求信息内容错误等），服务器会通过响应状态码告知用户问题的具体原因。您可以通过心知天气的官方文档获得服务器响应状态码所对应的具体问题原因。
    ```C++
    forecast.getServerCode()
-   ```  
+   ```
 
 7. 使用`getLastUpdate`函数获取心知天气信息更新时间
    ```C++
    forecast.getLastUpdate()
-   ```  
+   ```
 
 ### 获取生活指数信息
 
@@ -126,38 +126,38 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
 2. 首先通过`LIfeInfo`建立对象
    ```C++
    LifeInfo lifeInfo
-   ```  
+   ```
 
 3. 使用`config`函数配置连接心知天气的用户私钥、城市信息以及温度
    ```C++
    lifeInfo.config(reqUserKey, reqLocation, reqUnit);
-   ```  
+   ```
 
 4. 使用`update`函数对天气信息进行更新（此函数返回值为`bool`型。在ESP8266成功连接心知天气服务器并且服务器返回响应状态码为`200`时，此函数将会返回真，否则会返回假。）
    ```C++
    lifeInfo.update();
-   ```  
+   ```
 
 5. 使用下列函数获取当前天气信息  
 
-   | 函数说明       | 函数示例                  |
-   | -------------- | ------------------------- |
-   | 获取洗车建议   | `lifeInfo.getCarWash()`   |
-   | 获取穿衣建议   | `lifeInfo.getDressing()`  |
-   | 获取流感建议   | `lifeInfo.getFactorFlu()` |
-   | 获取运动建议   | `lifeInfo.getExercise()`  |
-   | 获取旅游建议   | `lifeInfo.getTravel()`    |
-   | 获取紫外线建议 | `lifeInfo.getUV()`        |
+   | 函数说明                           | 函数示例                  |
+   | ---------------------------------- | ------------------------- |
+   | 获取洗车建议(返回值类型：String)   | `lifeInfo.getCarWash()`   |
+   | 获取穿衣建议(返回值类型：String)   | `lifeInfo.getDressing()`  |
+   | 获取流感建议(返回值类型：String)   | `lifeInfo.getFactorFlu()` |
+   | 获取运动建议(返回值类型：String)   | `lifeInfo.getExercise()`  |
+   | 获取旅游建议(返回值类型：String)   | `lifeInfo.getTravel()`    |
+   | 获取紫外线建议(返回值类型：String) | `lifeInfo.getUV()`        |
 
 6. 使用`getServerCode`函数可获取服务器响应状态码。  
 当用户通过ESP8266向心知天气服务器发送的请求存在问题时（如私钥错误、请求信息内容错误等），服务器会通过响应状态码告知用户问题的具体原因。您可以通过心知天气的官方文档获得服务器响应状态码所对应的具体问题原因。
    ```C++
    lifeInfo.getServerCode()
-   ```  
+   ```
 7. 使用`getLastUpdate`函数获取心知天气信息更新时间
    ```C++  
    lifeInfo.getLastUpdate()
-   ```  
+   ```
 
 太极创客团队信息
 --------

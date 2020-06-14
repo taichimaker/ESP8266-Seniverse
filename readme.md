@@ -96,9 +96,9 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
    | 函数说明                                 | 函数示例（参数i为第几天信息）  |
    | ---------------------------------------- | ------------------------------ |
    | 白天天气信息(返回值类型：String)         | `forecast.getDayText(i)`       |
-   | 白天天气信息(返回值类型：String)         | `forecast.getDayCode(i)`       |
+   | 白天天气代码(返回值类型：int)            | `forecast.getDayCode(i)`       |
    | 夜晚天气信息(返回值类型：String)         | `forecast.getNightText(i)`     |
-   | 夜晚天气信息(返回值类型：String)         | `forecast.getNightCode(i)`     |
+   | 夜晚天气代码(返回值类型：int)            | `forecast.getNightCode(i)`     |
    | 最高气温(返回值类型：int)                | `forecast.getHigh(i)`          |
    | 最低气温(返回值类型：int)                | `forecast.getLow(i)`           |
    | 心知天气信息更新时间(返回值类型：String) | `forecast.getLastUpdate(i)`    |

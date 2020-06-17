@@ -171,6 +171,10 @@ ESP8266-Seniverse库仅仅是我们团队所开发的诸多免费开源项目中
 
 太极创客码云：https://gitee.com/taijichuangke
 
+## ESP8266-Seniverse库项目开发人员
+--------
+CYNO朔	https://github.com/Cyno-Shuo
+
 -----------------------------
 
 ## ESP8266-Seniverse
@@ -197,6 +201,10 @@ Taichi-Maker YouTube Chanel：https://www.youtube.com/channel/UC8EkxMr5gGnrb9adV
 Taichi-Maker GitHub：https://github.com/taichi-maker
 
 Taichi-Maker Gitee：https://gitee.com/taijichuangke
+
+## ESP8266-Seniverse  project developer(s)
+--------
+CYNO朔	https://github.com/Cyno-Shuo
 
 
 
